@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,26 @@ namespace Закуп
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<string> buys;
         public MainWindow()
         {
             InitializeComponent();
+
+            buys = new ObservableCollection<string> {""};
+            buysList.ItemsSource = buys;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string buy = textBox1.Text;
+
+            buys.Add(buy);
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
